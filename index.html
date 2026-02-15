@@ -170,11 +170,20 @@ body.dark .card img {
 <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
 
 <script>
+
 function toggleDarkMode() {
   document.body.classList.toggle('dark');
   document.body.classList.toggle('light');
 }
 </script>
+<footer>
+  <p>© <span id="year"></span> TaTa is Comming™. All Rights Reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 
 </body>
 </html>
