@@ -4,4 +4,4 @@
 
 ### 否则我们将会追究到底
 
-#### copyright©2026 TaTa is comming™ All right reserved
+#### copyright©2026 TaTa is Comming™. All right reserved
