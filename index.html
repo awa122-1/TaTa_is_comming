@@ -2,214 +2,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TaTa 来也！</title>
-<style>
+<title>TaTa 官方网站</title>
 
-html, body {
-  margin: 0;
-  min-height: 100vh;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, sans-serif;
-  transition: background 0.5s;
-}
-
-/* 浅色模式背景 */
-body.light {
-  background: linear-gradient(-45deg, white, lightpink, pink, #d35793, #642141);
-}
-
-/* 深色模式背景 */
-body.dark {
-  background: linear-gradient(-45deg, #1a1a1a, #330033, #660066, #990099, #cc33cc, #e7bfe4);
-}
-
-/* 动态背景动画 */
-body.light, body.dark {
-  background-size: 400% 400%;
-  animation: gradientMove 8s ease infinite;
-}
-
-/* 内容容器（新增） */
-.main-content {
-  flex: 1;
-  position: relative;
-}
-
-/* 顶部菜单栏 */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
-  background: rgba(255,255,255,0.08); 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 30px rgba(255,255,255,0.3);
-  z-index: 1000;
-  transition: background 0.5s, box-shadow 0.5s;
-}
-
-/* 深色模式调整菜单栏颜色 */
-body.dark .navbar {
-  background: rgba(0,0,0,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
-}
-
-/* 菜单项 */
-.navbar a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0 0 15px rgba(255,255,255,0.8);
-  color: #fff;
-}
-
-/* 左上角卡片 */
-.card {
-  position: absolute;
-  top: 75px;
-  left: 15px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  width: 300px;
-  padding: 14px 22px;
-  border-radius: 18px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-
-  border: 2px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 30px rgba(255,255,255,0.5);
-
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* 悬停发光 */
-.card:hover {
-  box-shadow: 0 0 25px rgba(255,255,255,0.9);
-  transform: scale(1.05);
-}
-
-/* 卡片里的图片 */
-.card img {
-  width: 28px;
-  height: 28px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 0 6px rgba(255,255,255,0.6);
-}
-
-/* 深色模式图片微调发光 */
-body.dark .card img {
-  box-shadow: 0 0 6px rgba(255,255,255,0.4);
-}
-
-/* 切换按钮 */
-.toggle-btn {
-  position: fixed;
-  top: 70px;
-  right: 20px;
-  z-index: 2000;
-  padding: 8px 12px;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.toggle-btn:hover {
-  box-shadow: 0 0 15px rgba(255,255,255,0.7);
-}
-
-/* 底部版权（新增关键） */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  font-weight: bold;
-}
-
-/* 动态背景动画 */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light">
+<body>
 
 <div class="main-content">
 
-<!-- 顶部菜单栏 -->
 <div class="navbar">
   <a href="index.html">首页</a>
   <a href="about.html">关于</a>
   <a href="contact.html">联系</a>
 </div>
 
-<!-- 左上角磨砂卡片 -->
 <div class="card">
-  <img src="logo.png" alt="Logo">
+  <img src="logo.png" width="28">
   TaTa 来也！
 </div>
 
-<!-- 切换深色模式按钮 -->
 <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
+
+<div style="margin-top:150px;text-align:center;color:white;">
+  <h1>欢迎来到 TaTa 的世界 ✨</h1>
+  <p>这是我们的官方网站。</p>
+  <p>一个充满创意与想法的小天地。</p>
+</div>
 
 </div>
 
 <footer>
-  <p>© <span id="year"></span> TaTa is Comming™. All Rights Reserved.</p>
+  © <span id="year"></span> TaTa is Comming™. All Rights Reserved.
 </footer>
 
-<script>
-function toggleDarkMode() {
-  document.body.classList.toggle('dark');
-  document.body.classList.toggle('light');
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
