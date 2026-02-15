@@ -5,9 +5,15 @@
 <title>联系 TaTa</title>
 
 <style>
-body {
+
+html, body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: Arial, "Microsoft YaHei", sans-serif;
   transition: background 0.5s;
 }
@@ -24,6 +30,12 @@ body.dark {
 body.light, body.dark {
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
+}
+
+/* 主体内容容器（新增） */
+.main-content {
+  flex: 1;
+  position: relative;
 }
 
 /* 顶部菜单栏 */
@@ -118,15 +130,30 @@ body.light, body.dark {
   box-shadow: 0 0 15px rgba(255,255,255,0.9);
 }
 
+/* 底部版权（关键新增） */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-weight: bold;
+}
+
+/* 动画 */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 </style>
 </head>
 
 <body class="light">
+
+<div class="main-content">
 
 <!-- 顶部菜单 -->
 <div class="navbar">
@@ -155,19 +182,23 @@ body.light, body.dark {
     <a href="https://www.xiaohongshu.com/user/profile/68550f23000000001d00a922" target="_blank" style="color:white;">
       <img src="xhs.png" width="20" style="vertical-align: middle; margin-right: 5px;">
       小红书
-      
     </a>
   </p>
+
   <p>
-     <a href="https://xhslink.com/m/3EbNZN5sBZy" target="_blank" style="color:white;">
+    <a href="https://xhslink.com/m/3EbNZN5sBZy" target="_blank" style="color:white;">
       <img src="xhs.png" width="20" style="vertical-align: middle; margin-right: 5px;">
       网站作者小红书个人主页awa
     </a>
   </p>
+
 </div>
 
-<!-- 深色模式按钮 -->
-<div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
+</div>
+
+<footer>
+  <p>© <span id="year"></span> TaTa is Comming™. All Rights Reserved.</p>
+</footer>
 
 <script>
 function toggleDarkMode() {
@@ -178,14 +209,8 @@ function toggleDarkMode() {
 function goHome() {
   window.location.href = "index.html";
 }
-</script>
 
-<footer>
-  <p>© <span id="year"></span> TaTa is Comming™. All Rights Reserved.</p>
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>

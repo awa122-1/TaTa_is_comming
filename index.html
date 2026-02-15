@@ -4,9 +4,15 @@
 <meta charset="UTF-8">
 <title>TaTa 来也！</title>
 <style>
-body {
+
+html, body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
   transition: background 0.5s;
 }
@@ -25,6 +31,12 @@ body.dark {
 body.light, body.dark {
   background-size: 400% 400%;
   animation: gradientMove 8s ease infinite;
+}
+
+/* 内容容器（新增） */
+.main-content {
+  flex: 1;
+  position: relative;
 }
 
 /* 顶部菜单栏 */
@@ -114,7 +126,6 @@ body.dark .navbar {
   object-fit: cover;
   border-radius: 6px;
   box-shadow: 0 0 6px rgba(255,255,255,0.6);
-  transition: box-shadow 0.5s;
 }
 
 /* 深色模式图片微调发光 */
@@ -143,15 +154,31 @@ body.dark .card img {
   box-shadow: 0 0 15px rgba(255,255,255,0.7);
 }
 
+/* 底部版权（新增关键） */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-weight: bold;
+}
+
 /* 动态背景动画 */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 </style>
 </head>
+
 <body class="light">
+
+<div class="main-content">
 
 <!-- 顶部菜单栏 -->
 <div class="navbar">
@@ -169,21 +196,20 @@ body.dark .card img {
 <!-- 切换深色模式按钮 -->
 <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
 
-<script>
+</div>
 
-function toggleDarkMode() {
-  document.body.classList.toggle('dark');
-  document.body.classList.toggle('light');
-}
-</script>
 <footer>
   <p>© <span id="year"></span> TaTa is Comming™. All Rights Reserved.</p>
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+  document.body.classList.toggle('light');
+}
 
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
