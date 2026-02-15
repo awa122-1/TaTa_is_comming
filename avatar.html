@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo.ico">
+  <meta charset="UTF-8">
+  <title>头像展示 - TaTa</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 保持和 contact.html 风格一致 */
+    body {
+      background-color: #222;
+      font-family: sans-serif;
+      margin: 0;
+      color: white;
+    }
+    .main-content {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+    }
+    .card {
+      background-color: #333;
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #555;
+    }
+    .toggle-btn {
+      background-color: #555;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    /* 头像展示 */
+    .avatar-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .avatar-item {
+      text-align: center;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 10px;
+      width: 150px;
+    }
+    .avatar-item img {
+      width: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .avatar-item button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #555;
+      color: white;
+    }
+    .avatar-item button:hover {
+      background-color: #777;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 10px;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="main-content">
+
+  <div class="navbar">
+    <a href="index.html">首页</a>
+    <a href="about.html">关于</a>
+    <a href="contact.html">联系</a>
+    <a href="avatar.html">下载头像</a>
+  </div>
+
+  <div class="card">
+    <img src="logo.png" width="28">
+    TaTa 来也！
+  </div>
+
+  <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
+
+  <!-- 页面正文 -->
+  <div style="margin-top:30px;">
+    <h1>头像展示</h1>
+    <p>点击下载你喜欢的头像款式</p>
+
+    <div class="avatar-grid">
+      <div class="avatar-item">
+        <img src="avatar1.png" alt="款式1">
+        <p>款式1</p>
+        <button onclick="downloadImage('avatar1.png')">下载</button>
+      </div>
+      <div class="avatar-item">
+        <img src="avatar2.png" alt="款式2">
+        <p>款式2</p>
+        <button onclick="downloadImage('avatar2.png')">下载</button>
+      </div>
+      <div class="avatar-item">
+        <img src="avatar3.png" alt="款式3">
+        <p>款式3</p>
+        <button onclick="downloadImage('avatar3.png')">下载</button>
+      </div>
+      <!-- 可以继续添加更多头像 -->
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © <span id="year"></span> TaTa is Comming™. All Rights Reserved.
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // 自动显示年份
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function downloadImage(src) {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = src.split('/').pop();
+    link.click();
+  }
+</script>
+
+</body>
+</html>
