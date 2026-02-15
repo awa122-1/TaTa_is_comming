@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" href="icon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="logo.ico">
   <meta charset="UTF-8">
   <title>头像展示 - TaTa</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo.ico">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       background-color: #222;
+      color: white;
       font-family: sans-serif;
       margin: 0;
-      color: white;
     }
     .main-content {
       max-width: 900px;
@@ -25,12 +25,13 @@
       color: white;
     }
     .card {
-      background-color: #333;
+      background-color: #444;
       display: inline-block;
       padding: 10px 20px;
       margin: 20px 0;
       border-radius: 10px;
       box-shadow: 0 0 10px #555;
+      color: white;
     }
     .toggle-btn {
       background-color: #555;
@@ -39,6 +40,23 @@
       cursor: pointer;
       display: inline-block;
       margin-bottom: 20px;
+    }
+    .dark-mode {
+      background-color: #111;
+      color: #eee;
+    }
+    .dark-mode .card {
+      background-color: #222;
+      box-shadow: 0 0 10px #000;
+    }
+    .dark-mode .navbar a {
+      color: #eee;
+    }
+    .dark-mode .toggle-btn {
+      background-color: #666;
+    }
+    .dark-mode .avatar-item {
+      background-color: #222;
     }
     .avatar-grid {
       display: flex;
@@ -91,29 +109,18 @@
   </div>
 
   <div class="card">
-    <img src="logo.png" width="28">
+    <img src="logo.png" width="28" style="vertical-align:middle;">
     TaTa 来也！
   </div>
 
   <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
 
-  <div style="margin-top:30px;">
+  <div>
     <h1>头像展示</h1>
     <p>点击下载你喜欢的头像款式</p>
 
-    <div class="avatar-grid">
-      <!-- 生成 10 个头像项 -->
-      <script>
-        for (let i = 1; i <= 10; i++) {
-          document.write(`
-            <div class="avatar-item">
-              <img src="txxz/avatar${i}.jpg" alt="款式${i}">
-              <p>款式${i}</p>
-              <button onclick="downloadImage('txxz/avatar${i}.jpg')">下载</button>
-            </div>
-          `);
-        }
-      </script>
+    <div class="avatar-grid" id="avatarGrid">
+      <!-- 头像由 JS 自动生成 -->
     </div>
   </div>
 
@@ -123,10 +130,12 @@
   © <span id="year"></span> TaTa is Comming™. All Rights Reserved.
 </footer>
 
-<script src="script.js"></script>
 <script>
-  // 自动显示年份
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
 
   function downloadImage(src) {
     const link = document.createElement('a');
@@ -135,9 +144,20 @@
     link.click();
   }
 
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
+  // 生成头像格子
+  const avatarGrid = document.getElementById('avatarGrid');
+  const avatars = ['avatar.jpg','avatar2.jpg','avatar3.jpg','avatar4.jpg','avatar5.jpg','avatar6.jpg','avatar7.jpg','avatar8.jpg','avatar9.jpg','avatar10.jpg'];
+
+  avatars.forEach((file, index) => {
+    const div = document.createElement('div');
+    div.className = 'avatar-item';
+    div.innerHTML = `
+      <img src="txxz/${file}" alt="款式${index+1}" onerror="this.src='txxz/${file}'">
+      <p>款式${index+1}</p>
+      <button onclick="downloadImage('txxz/${file}')">下载</button>
+    `;
+    avatarGrid.appendChild(div);
+  });
 </script>
 
 </body>
