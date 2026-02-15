@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      background-color: #222;
-      color: white;
+      background-color: #f7f9fc;
+      color: #222;
       font-family: sans-serif;
       margin: 0;
     }
@@ -22,19 +22,19 @@
     .navbar a {
       margin: 0 15px;
       text-decoration: none;
-      color: white;
+      color: #222;
     }
     .card {
-      background-color: #444;
+      background-color: #ffffff;
       display: inline-block;
       padding: 10px 20px;
       margin: 20px 0;
       border-radius: 10px;
-      box-shadow: 0 0 10px #555;
-      color: white;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+      color: #222;
     }
     .toggle-btn {
-      background-color: #555;
+      background-color: #e8eef7;
       padding: 8px 15px;
       border-radius: 5px;
       cursor: pointer;
@@ -67,15 +67,21 @@
     }
     .avatar-item {
       text-align: center;
-      background-color: #333;
+      background-color: #fff;
       padding: 10px;
       border-radius: 10px;
       width: 150px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
     }
     .avatar-item img {
       width: 120px;
+      height: 120px;
+      object-fit: cover;
       border-radius: 50%;
       margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .avatar-item button {
       padding: 5px 10px;
@@ -152,9 +158,9 @@
     const div = document.createElement('div');
     div.className = 'avatar-item';
     div.innerHTML = `
-      <img src="txxz/${file}" alt="款式${index+1}" onerror="this.src='txxz/${file}'">
+      <img src="./txxz/${file}" alt="款式${index+1}" onerror="this.onerror=null; this.alt='图片加载失败';">
       <p>款式${index+1}</p>
-      <button onclick="downloadImage('txxz/${file}')">下载</button>
+      <button onclick="downloadImage('./txxz/${file}')">下载</button>
     `;
     avatarGrid.appendChild(div);
   });
