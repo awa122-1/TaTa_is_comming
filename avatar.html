@@ -5,10 +5,8 @@
   <link rel="apple-touch-icon" href="logo.ico">
   <meta charset="UTF-8">
   <title>头像展示 - TaTa</title>
-  <h1>新年特备</h1>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* 保持和 contact.html 风格一致 */
     body {
       background-color: #222;
       font-family: sans-serif;
@@ -42,8 +40,6 @@
       display: inline-block;
       margin-bottom: 20px;
     }
-
-    /* 头像展示 */
     .avatar-grid {
       display: flex;
       flex-wrap: wrap;
@@ -74,7 +70,6 @@
     .avatar-item button:hover {
       background-color: #777;
     }
-
     footer {
       margin-top: 50px;
       padding: 10px;
@@ -102,28 +97,23 @@
 
   <div class="toggle-btn" onclick="toggleDarkMode()">切换深色模式</div>
 
-  <!-- 页面正文 -->
   <div style="margin-top:30px;">
     <h1>头像展示</h1>
     <p>点击下载你喜欢的头像款式</p>
 
     <div class="avatar-grid">
-      <div class="avatar-item">
-        <img src="avatar1.png" alt="款式1">
-        <p>款式1</p>
-        <button onclick="downloadImage('avatar1.png')">下载</button>
-      </div>
-      <div class="avatar-item">
-        <img src="avatar2.png" alt="款式2">
-        <p>款式2</p>
-        <button onclick="downloadImage('avatar2.png')">下载</button>
-      </div>
-      <div class="avatar-item">
-        <img src="avatar3.png" alt="款式3">
-        <p>款式3</p>
-        <button onclick="downloadImage('avatar3.png')">下载</button>
-      </div>
-      <!-- 可以继续添加更多头像 -->
+      <!-- 生成 10 个头像项 -->
+      <script>
+        for (let i = 1; i <= 10; i++) {
+          document.write(`
+            <div class="avatar-item">
+              <img src="avatar${i}.jpg" alt="款式${i}">
+              <p>款式${i}</p>
+              <button onclick="downloadImage('avatar${i}.jpg')">下载</button>
+            </div>
+          `);
+        }
+      </script>
     </div>
   </div>
 
@@ -143,6 +133,10 @@
     link.href = src;
     link.download = src.split('/').pop();
     link.click();
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
   }
 </script>
 
